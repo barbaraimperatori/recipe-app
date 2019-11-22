@@ -1,11 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 const App = () => {
 	const APP_ID = 'a744177d';
 	const APP_KEY = 'a6781d35187976f59d9209f68a31ea8c';
 	const exampleRequest = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+	const [counter, setCounter] = useState(0);
+
+	useEffect(() => {
+		console.log('effect has been run');
+	});
 
 	return (
 		<div className="App">
@@ -15,6 +20,7 @@ const App = () => {
 					Search
 				</button>
 			</form>
+			<h1 onClick={() => setCounter(counter + 1)}>{counter}</h1>
 		</div>
 	);
 };
